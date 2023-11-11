@@ -7,5 +7,6 @@ nomes.append("Chandler, Phoebe")
 # A função SORT() literalmente seleciona por ordem alfabetica os nomes na lista
 nomes.sort()
 
-# ::-1 Inverte a saida feita pelo SORT(). ao invés de sair conforme a função faz, por ordem alfabetica, inverte
+# nomes[::-1] Inverte a saida feita pelo SORT(). ao invés de sair conforme a função faz, por ordem alfabetica, inverte
+
 print(nomes)
