@@ -12,7 +12,7 @@ Com a importação da função HttpResponse, foi passado uma ação para que o r
 
 
 def index(request):
-    return HttpResponse("Olá, Roberson, bem vindo ao mundo Django")
+    return render(request, "hello/index.html")
 def rob(request):
     return HttpResponse("Olá, Roberson")
 def bob(request):
@@ -21,4 +21,6 @@ def bob(request):
 # definir uma função para cada nome como foi feito acima, ao chamar hello/fulano, trasmitirá olá, fulano mesmo que
 # não tenha essa função definida. Agora em urls.py defino o caminho de busca
 def greet(request, nome):
-    return HttpResponse(f"Olá, {nome.capitalize()}!") #captalize formada primeira letra em maiúscula
+    return render(request, "hello/greet.html", {
+        "nome": nome.capitalize()
+    }) #captalize formada primeira letra em maiúscula
