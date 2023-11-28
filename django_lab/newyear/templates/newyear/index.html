@@ -1,0 +1,18 @@
+<!-- #Carregue arquivos estaticos para este pagina -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is it a new year? </title>
+    <link href="{% static  'newyear/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% if newyear %}
+        <h1><p>YES</p></h1>
+    {% else %}
+        <h1 aria-grabbed="false"><p>NO</p></h1>
+    {% endif %}
+</body>
+</html>

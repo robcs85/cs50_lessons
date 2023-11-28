@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+
+    <!-- 1. Cria lista não ordenada
+         2. laço for percorrerá a função index dentro há a variavel tasks que acessa a lista global em tasks/views.py
+         3. Armazena a lista de itens acessadas em task
+         4. Por sua vez. task apresenta a lista de tarefas[] não ordenada na página
+         -->
+    <ul >
+        {% for task in tasks %}
+        <li> {{ task }}  </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
