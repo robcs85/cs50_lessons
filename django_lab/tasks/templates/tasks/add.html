@@ -1,0 +1,22 @@
+
+<!-- Herença da página layout (extends), ou seja, o corpo HTML
+     O que for chamado no navegador, fo direcionado para pagina add.html use o corpo da página html layout
+     e adicione a ação que tiver nest página-->
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+    <h1>Preencha o Formulário </h1>
+    <form action="{% url 'tasks:add' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+    <a href="{% url 'tasks:index' %}" > Visualizar Tarefas </a>
+{% endblock %}
+<!-- Adicionando ação ao formulario quando clicado
+nesta linha <form action="{% url 'tasks:add' %}" method="post"> quando clicado em enviar
+direciona de volta a pagina add.html-->
+
+<!-- Retirado a linha 11 <input type="Text" name="Tarefa">
+     No lugar, será chamado o fomulário da clase NewTaskForm através da variável form: na página views
+     dentro do corpo da página add {{ form }}-->

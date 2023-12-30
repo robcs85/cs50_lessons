@@ -1,21 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tasks</title>
-</head>
-<body>
+<!-- Herença da página layout (extends), ou seja, o corpo HTML
+     O que for chamado no navegador, fo direcionado para pagina index.html use o corpo da página html layout
+     e adicione a ação que tiver nest página-->
+{% extends "tasks/layout.html" %}
 
     <!-- 1. Cria lista não ordenada
          2. laço for percorrerá a função index dentro há a variavel tasks que acessa a lista global em tasks/views.py
          3. Armazena a lista de itens acessadas em task
-         4. Por sua vez. task apresenta a lista de tarefas[] não ordenada na página
-         -->
+         4. Por sua vez. task apresenta a lista de tarefas[] <ol> ordenada </ol> na página
+
+        -->
+{% block body %}
     <ul >
         {% for task in tasks %}
-        <li> {{ task }}  </li>
-        {% endfor %}
-    </ul>
+        <ol> {{ task }}  </ol>
 
-</body>
-</html>
+        {% empty %}
+        <ol> Lista Vazia </ol>
+
+        {% endfor %}
+
+    </ul>
+    <a href="{% url 'tasks:add' %}"> Tarefas </a>
+
+{% endblock %}
+<!-- Link para ser redirecionado para a página add, tratativa feita por django em {% url 'add' %}
+em algum lugar link com essa url add, direcione para o mesmo.
+Como há colisoes de páginas index, ao clicar na pagina add.html para direcionar de volta ao index do app tasks,
+estava sendo redirecionado para index.html do app newyear. Sendo assim, foi preciso nomear os app dentro da pagina urlpartterns
+para quando chamar index.html ele chame por tasks que tem os app nomeados agora, de dentro ao app tasks e assim direciona para
+o index correto
+-->
